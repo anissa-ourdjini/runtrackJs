@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+    color: black;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.konami-style {
+    background-color: #222E50; /* Couleur principale de La Plateforme_ */
+    color: #FBB03B; /* Couleur secondaire */
+}
+
+.konami-style h1 {
+    font-size: 3rem;
+}
+
+.konami-style p {
+    font-size: 1.5rem;
+}
