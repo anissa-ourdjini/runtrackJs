@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu de Taquin - La Plateforme_</title>
+    <style>
+        body {
+            background-color: #87CEEB; /* Fond bleu clair */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+            width: 310px;
+            margin-top: 50px;
+            background-color: #87CEEB;
+            position: relative;
+        }
+
+        .grid::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310 40"><path d="M0 40 Q50 20 100 40 T200 40 T300 40 L310 0 L0 0 Z" fill="%231E90FF"/></svg>') no-repeat;
+            background-size: 100% 100%;
+        }
+
+        .tile {
+            width: 100px;
+            height: 100px;
+            border: 2px solid #1E90FF; /* Bordure bleue */
+            background-color: #FFD700; /* Fond jaune */
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.2s;
+        }
+
+        .tile.empty {
+            background-image: url('logo9.PNG'); /* Case vide */
+            background-color: #87CEEB;
+        }
+
+        #message {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            display: none;
+        }
+
+        #restart {
+            display: none;
+            margin: 10px auto;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #1E90FF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .won {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <div class="grid" id="grid"></div>
+    <div id="message"></div>
+    <button id="restart">Recommencer</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
