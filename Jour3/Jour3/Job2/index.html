@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+            display: flex;
+            gap: 5px;
+            margin: 20px;
+        }
+        .rainbow-piece {
+            width: 100px;
+            height: 100px;
+            cursor: move;
+            user-select: none;
+        }
+        #message {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <button id="shuffleBtn">Mélanger</button>
+    <div id="rainbowContainer" class="container">
+        <img src="./images/arc1.png" class="rainbow-piece" data-order="1">
+        <img src="./images/arc2.png" class="rainbow-piece" data-order="2">
+        <img src="./images/arc3.png" class="rainbow-piece" data-order="3">
+        <img src="./images/arc4.png" class="rainbow-piece" data-order="4">
+        <img src="./images/arc5.png" class="rainbow-piece" data-order="5">
+        <img src="./images/arc6.png" class="rainbow-piece" data-order="6">
+    </div>
+    </div>
+    <div id="message"></div>
+
+    <script>
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const container = document.getElementById('rainbowContainer');
+        const message = document.getElementById('message');
+        let draggedElement = null;
+
+        // Fonction pour mélanger les éléments
+        function shuffleImages() {
+            const images = Array.from(container.children);
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                container.insertBefore(images[j], images[i]);
+            }
+            checkOrder();
+        }
+
+        // Gestion du drag and drop
+        container.addEventListener('dragstart', (e) => {
+            if (e.target.classList.contains('rainbow-piece')) {
+                draggedElement = e.target;
+                e.target.style.opacity = '0.5';
+            }
+        });
+
+        container.addEventListener('dragend', (e) => {
+            if (e.target.classList.contains('rainbow-piece')) {
+                e.target.style.opacity = '1';
+            }
+        });
+
+        container.addEventListener('dragover', (e) => {
+            e.preventDefault();
+        });
+
+        container.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (e.target.classList.contains('rainbow-piece') && draggedElement !== e.target) {
+                const allImages = Array.from(container.children);
+                const draggedIndex = allImages.indexOf(draggedElement);
+                const targetIndex = allImages.indexOf(e.target);
+                
+                if (draggedIndex < targetIndex) {
+                    e.target.after(draggedElement);
+                } else {
+                    e.target.before(draggedElement);
+                }
+                checkOrder();
+            }
+        });
+
+        // Vérification de l'ordre
+        function checkOrder() {
+            const images = Array.from(container.children);
+            let isCorrect = true;
+            
+            for (let i = 0; i < images.length; i++) {
+                if (parseInt(images[i].dataset.order) !== i + 1) {
+                    isCorrect = false;
+                    break;
+                }
+            }
+
+            if (isCorrect) {
+                message.textContent = "Vous avez gagné";
+                message.style.color = "green";
+            } else {
+                message.textContent = "Vous avez perdu";
+                message.style.color = "red";
+            }
+        }
+
+        // Événement du bouton
+        shuffleBtn.addEventListener('click', shuffleImages);
+    </script>
+</body>
+</html>
