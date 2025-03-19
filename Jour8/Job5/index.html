@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nature's Beauty</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="font-sans text-grey-800">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-green-800 text-white shadow">
+    <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold">Nature's Beauty</div>
+      <ul class="flex space-x-4">
+        <li><a href="#" class="hover:text-gray-300">Accueil</a></li>
+        <li><a href="#" class="hover:text-gray-300">À propos</a></li>
+        <li><a href="#gallery" class="hover:text-gray-300">Galerie</a></li>
+        <li><a href="#" class="hover:text-gray-300">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <main>
+    <section class="hero relative h-screen bg-cover bg-center flex items-center justify-center" style="background-image: url('path/to/autumn-park.jpg')">
+      <div class="absolute inset-0 bg-black opacity-50"></div>
+      <div class="relative z-10 text-center text-white px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-4">Bienvenue dans la Beauté de la Nature. Tout un monde à préserver.</h1>
+        <p class="text-xl md:text-2xl mb-8">Explorez les merveilles du monde naturel</p>
+        <a href="#gallery" class="bg-turquoise-500 hover:bg-turquoise-600 text-white px-6 py-3 rounded-lg text-lg">Voir la Galerie</a>
+      </div>
+    </section>
+
+    <!-- Featured Section -->
+    <section class="featured py-16 bg-gray-100">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-8">Paysages Vedettes</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Carte 1 : Montagnes -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+            <img src="montagne.jpg" alt="Montagnes enneigées" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Montagnes Majestueuses</h3>
+              <p class="text-gray-700">Sommets enneigés et lac turquoise.</p>
+            </div>
+          </div>
+          <!-- Carte 2 : Forêt avec cerf -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+            <img src="cerf.jpg" alt="Forêt avec cerf" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Forêt Mystique</h3>
+              <p class="text-gray-700">Un cerf majestueux dans la brume.</p>
+            </div>
+          </div>
+          <!-- Carte 3 : Cascade -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition duration-300">
+            <img src="cascade.jpg" alt="Cascade" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <h3 class="text-xl font-bold mb-2">Cascade Éblouissante</h3>
+              <p class="text-gray-700">Eau turquoise et végétation luxuriante.</p>
+          </div>
+       
