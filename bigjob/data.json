@@ -1,0 +1,10 @@
+
+[
+    {"email": "etudiant@laplateforme.io", "password": "1234", "role": "user"},
+    {"email": "moderateur@laplateforme.io", "password": "5678", "role": "moderator"}
+]
+
+
+[
+    {"user": "etudiant@laplateforme.io", "date": "2023-12-01", "status": "pending"}
+]
